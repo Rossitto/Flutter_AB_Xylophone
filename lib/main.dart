@@ -1,4 +1,3 @@
-// import 'package:audioplayers/audioplayers.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,6 @@ class XylophoneApp extends StatelessWidget {
         child: null,
         onPressed: () {
           AudioCache().play('note$numeroSom.wav');
-          // playSound(numeroSom);
         },
       ),
     );
@@ -41,8 +39,3 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 }
-
-// void playSound(int soundNumber) {
-//   final player = AudioCache();
-//   player.play('note$soundNumber.wav');
-// }
