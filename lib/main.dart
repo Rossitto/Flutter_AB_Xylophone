@@ -5,9 +5,17 @@ import 'package:flutter/material.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
-  void playSound(int soundNumber) {
-    final player = AudioCache();
-    player.play('note$soundNumber.wav');
+  Expanded buildKey(Color color, int numeroSom) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        child: null,
+        onPressed: () {
+          AudioCache().play('note$numeroSom.wav');
+          // playSound(numeroSom);
+        },
+      ),
+    );
   }
 
   @override
@@ -19,69 +27,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  color: Colors.red,
-                  child: null,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(2);
-                  },
-                  color: Colors.orange,
-                  child: null,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(3);
-                  },
-                  color: Colors.yellow,
-                  child: null,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(4);
-                  },
-                  color: Colors.green,
-                  child: null,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(5);
-                  },
-                  color: Colors.teal,
-                  child: null,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(6);
-                  },
-                  color: Colors.lightBlue,
-                  child: null,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(7);
-                  },
-                  color: Colors.purple,
-                  child: null,
-                ),
-              ),
+              buildKey(Colors.red, 1),
+              buildKey(Colors.orange, 2),
+              buildKey(Colors.yellow, 3),
+              buildKey(Colors.green, 4),
+              buildKey(Colors.teal, 5),
+              buildKey(Colors.blue, 6),
+              buildKey(Colors.purple, 7),
             ],
           ),
         ),
@@ -89,3 +41,8 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 }
+
+// void playSound(int soundNumber) {
+//   final player = AudioCache();
+//   player.play('note$soundNumber.wav');
+// }
